@@ -1,1 +1,105 @@
+/*
+ * Google Font
+ * ------------------------------------
+ */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
 
+/*
+ * Reset
+ * ------------------------------------
+ */
+body {
+	font-size: 18px;
+	font-family: "Open Sans", sans-serif;
+	background-color: rgb(19, 20, 64);
+	color: #fff;
+}
+/* #root {
+	min-height: 100vh;
+	background: linear-gradient(315deg, rgba(19, 20, 64, 1) 0%, rgba(19, 20, 64, 0.9) 33%, rgba(19, 20, 64, 1) 45%);
+	background: linear-gradient(315deg, rgba(19, 20, 64, 1) 50%, rgba(19, 20, 64, 0.9) 60%, rgba(19, 20, 64, 1) 70%);
+	background: rgb(19, 20, 64);
+	border-radius: 30px;
+} */
+h1,
+h2,
+h3 {
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+h1 {
+	font-size: 2rem;
+}
+h2 {
+	font-size: 1rem;
+	/* margin-bottom: 2rem; */
+	/* margin-top: 1.5rem; */
+}
+h3 {
+	font-size: 1.7rem;
+}
+
+/*
+ * Button Custom
+ * ------------------------------------
+ */
+.btn-primary {
+	background-color: #fccf57;
+	border: unset;
+	border-radius: 0.5rem;
+	color: #131440;
+	font-weight: 600;
+	padding: 10px;
+}
+.btn-primary:hover {
+	background-color: transparent;
+	border: 1px solid #fccf57;
+	color: #fccf57;
+}
+.btn-outline-primary {
+	border-color: #fccf57;
+	border-radius: 0.5rem;
+	color: #fccf57;
+	font-weight: 600;
+}
+.btn-outline-primary:hover {
+	background-color: #fccf57;
+	border-color: #fccf57;
+	color: #131440;
+}
+
+/*
+ * Homepage
+ */
+.home,
+.search {
+	height: 100vh;
+	background-image: url("../images/bg-home.jpg");
+	background-position: center center;
+	background-size: cover;
+	position: relative;
+}
+.home::before,
+.search::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+.home::before {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+.search::before {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.home .col-8,
+.search .col-8 {
+	position: relative;
+	z-index: 10;
+}
