@@ -72,6 +72,7 @@ h3 {
 
 /*
  * Homepage
+ * ------------------------------------
  */
 .home,
 .search {
@@ -102,4 +103,54 @@ h3 {
 .search .col-8 {
 	position: relative;
 	z-index: 10;
+}
+
+/*
+ * Forecast
+ * ------------------------------------
+ */
+.forecast .forecats__img {
+	height: 40vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(43, 45, 144);
+}
+.forecast .forecats__img img {
+	width: 80%;
+}
+/* .forecast .forecast__info-daily {
+	display: flex;
+	flex-direction: column;
+
+} */
+.forecast .forecast__info-daily .forecast__now > p {
+	font-size: 5rem;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+.forecast .forecast__info-daily .forecast__now > img {
+	width: 30%;
+}
+.forecast .forecast__info-daily .forecast__now > div p {
+	margin-bottom: 0;
+}
+.forecast .forecast__next-day {
+	border: 1px solid white;
+	display: flex;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.forecast .forecast__next-day > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.forecast .forecast__next-day p {
+	margin-bottom: 0;
+	font-size: 1.2rem;
+	color: rgba(0, 0, 0, 0.4);
+}
+.forecast .forecast__next-day > div:nth-of-type(1) > p:nth-of-type(1),
+.forecast .forecast__next-day > div:nth-of-type(3) > p:nth-of-type(1) {
+	color: #212529;
 }

@@ -29,7 +29,7 @@ const Search = () => {
 				setCities(data);
 				setQuery("");
 
-				// console.log(data);
+				console.log(data);
 			} else {
 				alert("alert: error fetching results");
 			}
@@ -58,8 +58,11 @@ const Search = () => {
 				<Col xs={8}>
 					{cities.map((city) => (
 						<div key={city.id}>
-							<Button className="mt-4" onClick={() => handleSetCity(city)}>
-								{city.name}, {city.country}
+							<Button className="mt-4 w-100 d-flex justify-content-between" onClick={() => handleSetCity(city)}>
+								<span>
+									{city.name}, {city.country === "United States of America" ? "USA" : city.country}
+								</span>
+								<span>+</span>
 							</Button>
 						</div>
 					))}
