@@ -3,6 +3,7 @@ export const ADD_FAVORITE = "ADD_FAVORITE";
 export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
 export const SET_DAILY_FORECAST = "SET_DAILY_FORECAST";
 export const SET_NEXT_FORECAST = "SET_NEXT_FORECAST";
+export const SELECT_DAY = "SELECT_DAY";
 
 const baseEndpoint = process.env.REACT_APP_WEATHER_URL;
 const key = process.env.REACT_APP_WEATHER_KEY;
@@ -32,7 +33,7 @@ export const getDailyForecastAction = (city) => {
 export const getNextForecastAction = (city) => {
 	return async (dispatch, getState) => {
 		try {
-			const response = await fetch(baseEndpoint + "/forecast.json?key=" + key + "&q=" + city.lat + "," + city.lon + "&lang=it&days=7");
+			const response = await fetch(baseEndpoint + "/forecast.json?key=" + key + "&q=" + city.lat + "," + city.lon + "&lang=it&days=11");
 
 			if (response.ok) {
 				const data = await response.json();
@@ -48,6 +49,8 @@ export const getNextForecastAction = (city) => {
 		}
 	};
 };
+
+export const selectDayAction = (day) => ({ type: SELECT_DAY, payload: day });
 
 // export const addToCartActionWithThunk = bookSelected => {
 //    return (dispatch, getState) => {

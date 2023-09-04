@@ -106,51 +106,73 @@ h3 {
 }
 
 /*
- * Forecast
+ * Forecast - Intro
  * ------------------------------------
  */
-.forecast .forecats__img {
+.forecast-intro .forecast__img,
+.forecast-detail .forecast__img {
 	height: 40vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-color: rgb(43, 45, 144);
 }
-.forecast .forecats__img img {
+.forecast-intro .forecast__img img,
+.forecast-detail .forecast__img img {
 	width: 80%;
 }
-/* .forecast .forecast__info-daily {
-	display: flex;
-	flex-direction: column;
 
-} */
-.forecast .forecast__info-daily .forecast__now > p {
-	font-size: 5rem;
+.forecast-intro .forecast__info-daily .forecast__now > p {
+	font-size: 4rem;
 	font-weight: 600;
 	margin-bottom: 0;
 }
-.forecast .forecast__info-daily .forecast__now > img {
+.forecast-intro .forecast__info-daily .forecast__now > img {
 	width: 30%;
 }
-.forecast .forecast__info-daily .forecast__now > div p {
+.forecast-intro .forecast__info-daily .forecast__now > div > p {
 	margin-bottom: 0;
+	font-size: 0.9rem;
 }
-.forecast .forecast__next-day {
+
+.forecast-intro .forecast__next-day,
+.forecast-detail .forecast__next-hour {
 	border: 1px solid white;
 	display: flex;
+	align-items: center;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.forecast .forecast__next-day > div {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+.forecast-intro .forecast__next-day > div,
+.forecast-detail .forecast__next-hour > div {
+	flex: 1;
 }
-.forecast .forecast__next-day p {
+.forecast-intro .forecast__next-day > div:not(:first-child):not(:last-child),
+.forecast-detail .forecast__next-hour > div:not(:first-child):not(:last-child) {
+	flex: none;
+}
+.forecast-intro .forecast__next-day p,
+.forecast-detail .forecast__next-hour p {
 	margin-bottom: 0;
 	font-size: 1.2rem;
 	color: rgba(0, 0, 0, 0.4);
 }
-.forecast .forecast__next-day > div:nth-of-type(1) > p:nth-of-type(1),
-.forecast .forecast__next-day > div:nth-of-type(3) > p:nth-of-type(1) {
+.forecast-intro .forecast__next-day > div:nth-of-type(1) > p:nth-of-type(1),
+.forecast-intro .forecast__next-day > div:nth-of-type(3) > p:nth-of-type(1) {
 	color: #212529;
+}
+
+/*
+ * Forecast - Detail
+ * ------------------------------------
+ */
+.forecast-detail__intro > p {
+	font-size: 1.2rem;
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+.forecast-detail__intro > p:first-of-type {
+	font-size: 1.5rem;
+}
+.forecast-detail .forecast__next-hour > div:nth-of-type(3) p {
+	font-size: 1.7rem;
 }

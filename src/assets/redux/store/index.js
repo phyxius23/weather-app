@@ -6,6 +6,7 @@ import cityReducer from "../reducers/cityReducer";
 import dailyForecastReducer from "../reducers/dailyForecastReducer";
 import favoritesReducer from "../reducers/favoritesReducer";
 import nextForecastReducer from "../reducers/nextForecastReducer";
+import selectedDayReducer from "../reducers/selectedDayReducer";
 
 const persistConfig = {
 	key: "root",
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
 	favorites: favoritesReducer,
 	dailyForecast: dailyForecastReducer,
 	nextForecast: nextForecastReducer,
+	selectedDay: selectedDayReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
