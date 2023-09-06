@@ -11,7 +11,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/search" element={<Search />} />
 				<Route path="/city/:city" element={<DailyForecast />} />
-				<Route path="/city/:city/detail" element={<DetailedForecast />} />
+				<Route path="/city/:city/detail/:lastUpdate" element={<DetailedForecast />} />
 			</Routes>
 		</BrowserRouter>
 	);

@@ -3,10 +3,11 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 import cityReducer from "../reducers/cityReducer";
-import dailyForecastReducer from "../reducers/dailyForecastReducer";
+// import dailyForecastReducer from "../reducers/dailyForecastReducer";
 import favoritesReducer from "../reducers/favoritesReducer";
 import nextForecastReducer from "../reducers/nextForecastReducer";
 import selectedDayReducer from "../reducers/selectedDayReducer";
+import imageCityReducer from "../reducers/imageCityReducer";
 
 const persistConfig = {
 	key: "root",
@@ -21,9 +22,10 @@ const persistConfig = {
 const rootReducer = combineReducers({
 	city: cityReducer,
 	favorites: favoritesReducer,
-	dailyForecast: dailyForecastReducer,
+	// dailyForecast: dailyForecastReducer,
 	nextForecast: nextForecastReducer,
 	selectedDay: selectedDayReducer,
+	imageCity: imageCityReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

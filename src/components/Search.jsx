@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getImageCity, getNextForecastAction, setCityAction } from "../assets/redux/actions";
 
 const Search = () => {
 	const [query, setQuery] = useState("");
@@ -39,7 +40,9 @@ const Search = () => {
 	};
 
 	const handleSetCity = (city) => {
-		dispatch({ type: "SET_CITY", payload: city });
+		dispatch(setCityAction(city));
+		dispatch(getNextForecastAction(city));
+		dispatch(getImageCity(city.name));
 		navigate(`/city/${city.name}`);
 	};
 
