@@ -4,6 +4,7 @@ import { selectDayAction } from "../assets/redux/actions";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft } from "react-bootstrap-icons";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const DailyForecast = () => {
 	const dispatch = useDispatch();
@@ -62,7 +63,8 @@ const DailyForecast = () => {
 								<p className="mb-0">{city.name}</p>
 							</div>
 
-							<Image src={image} fluid />
+							{/* <Image src={image} fluid /> */}
+							<LazyLoadImage src={image} />
 						</Col>
 					</Row>
 

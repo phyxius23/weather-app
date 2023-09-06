@@ -2,6 +2,8 @@ import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { ChevronLeft } from "react-bootstrap-icons";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const DetailedForecast = () => {
 	const selectedDay = useSelector((state) => state.selectedDay.content);
@@ -31,12 +33,13 @@ const DetailedForecast = () => {
 					<Row>
 						<Col xs={12} className="forecast__img">
 							<div className="forecast__txt">
-								<div className="me-2" onClick={() => navigate(-1)}>
-									cb
+								<div className="d-flex justify-content-center align-items-center me-3" onClick={() => navigate(-1)}>
+									<ChevronLeft size={16} />
 								</div>
 								<p className="mb-0">{city}</p>
 							</div>
-							<Image src={image} fluid />
+							{/* <Image src={image} fluid /> */}
+							<LazyLoadImage src={image} />
 						</Col>
 					</Row>
 

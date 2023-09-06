@@ -4,7 +4,9 @@ export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
 export const SET_DAILY_FORECAST = "SET_DAILY_FORECAST";
 export const SET_NEXT_FORECAST = "SET_NEXT_FORECAST";
 export const SELECT_DAY = "SELECT_DAY";
+
 export const GET_IMAGE = "GET_IMAGE";
+export const RESET_IMAGE = "RESET_IMAGE";
 
 const baseEndpoint = process.env.REACT_APP_WEATHER_URL;
 const key = process.env.REACT_APP_WEATHER_KEY;
@@ -56,7 +58,8 @@ export const setCityAction = (city) => ({ type: SET_CITY, payload: city });
 export const selectDayAction = (day) => ({ type: SELECT_DAY, payload: day });
 // export const getImageCity = (nameCity) => ({ type: GET_IMAGE, payload: nameCity });
 
-/** SET DAILY FORECAST */
+export const resetImageAction = () => ({ type: RESET_IMAGE });
+/** GET IMAGE CITY */
 export const getImageCity = (nameCity) => {
 	console.log(nameCity);
 	return async (dispatch, getState) => {

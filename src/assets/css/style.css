@@ -127,7 +127,7 @@ h3 {
 	left: 0;
 	z-index: 1;
 }
-
+.forecast-intro .forecast__img .forecast__txt,
 .forecast-detail .forecast__img .forecast__txt {
 	position: absolute;
 	top: 0;
@@ -139,9 +139,10 @@ h3 {
 	display: flex;
 	align-items: center;
 }
+.forecast-intro .forecast__img .forecast__txt p,
 .forecast-detail .forecast__img .forecast__txt p {
 	font-size: 1.2rem;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .forecast-intro .forecast__info-daily .forecast__now > p {
