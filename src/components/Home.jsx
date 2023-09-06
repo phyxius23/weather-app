@@ -10,7 +10,7 @@ const Home = () => {
 					<h1 className="mb-3">Weather App</h1>
 					<Link to="/search">
 						<Button variant="primary" className="w-100 p-2">
-							Benvenuto!
+							Welcome!
 						</Button>
 					</Link>
 				</Col>

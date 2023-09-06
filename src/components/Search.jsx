@@ -53,7 +53,7 @@ const Search = () => {
 				<Col xs={8}>
 					<h1 className="mt-5 mb-3">Weather App</h1>
 					<Form className="d-flex" onSubmit={handleSearchCities}>
-						<Form.Control type="search" className="me-2" placeholder="Cerca città" value={query} onChange={handleChange} />
+						<Form.Control type="search" className="me-2" placeholder="Search city" value={query} onChange={handleChange} />
 						<Button type="submit" variant="outline-primary">
 							Search
 						</Button>

@@ -9,17 +9,11 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const DailyForecast = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	// const [stateCity, setStateCity] = useState()
+
 	const city = useSelector((state) => state.city.content);
 	const today = useSelector((state) => state.nextForecast.content.current);
 	const image = useSelector((state) => state.imageCity.content);
 	const nextForecast = useSelector((state) => state.nextForecast.content.forecast);
-
-	// useEffect(() => {
-	// 	if (city)
-	// 		dispatch(getDailyForecastAction(city));
-	// 		dispatch(getNextForecastAction(city));
-	// }, [city]);
 
 	const convertDate = (date) => {
 		const setDate = new Date(date);
