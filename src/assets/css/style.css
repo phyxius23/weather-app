@@ -106,7 +106,7 @@ h3 {
 }
 
 /*
- * Forecast - Intro
+ * Forecast
  * ------------------------------------
  */
 .forecast-intro .forecast__img,
@@ -144,20 +144,6 @@ h3 {
 	font-size: 1.2rem;
 	font-weight: 500;
 }
-
-.forecast-intro .forecast__info-daily .forecast__now > p {
-	font-size: 4rem;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-.forecast-intro .forecast__info-daily .forecast__now > img {
-	width: 30%;
-}
-.forecast-intro .forecast__info-daily .forecast__now > div > p {
-	margin-bottom: 0;
-	font-size: 0.9rem;
-}
-
 .forecast-intro .forecast__next-day,
 .forecast-detail .forecast__next-hour {
 	border: 1px solid white;
@@ -182,6 +168,23 @@ h3 {
 .forecast-intro .forecast__next-day > div:nth-of-type(1) > p:nth-of-type(1),
 .forecast-intro .forecast__next-day > div:nth-of-type(3) > p:nth-of-type(1) {
 	color: #212529;
+}
+
+/*
+ * Forecast - Intro
+ * ------------------------------------
+ */
+.forecast-intro .forecast__info-daily .forecast__now > p {
+	font-size: 4rem;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+.forecast-intro .forecast__info-daily .forecast__now > img {
+	width: 30%;
+}
+.forecast-intro .forecast__info-daily .forecast__now > div > p {
+	margin-bottom: 0;
+	font-size: 0.9rem;
 }
 
 /*

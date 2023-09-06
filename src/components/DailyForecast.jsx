@@ -93,34 +93,6 @@ const DailyForecast = () => {
 					{/* PREVISIONE DEI PROSSIMI GIORNI */}
 					<Row>
 						<Col xs={12} className="forecast__next-days bg-white px-0">
-							{/* {nextForecast.forecastday.map((day, index) => {
-								let htmlDay = null;
-								if (index !== 0) {
-									htmlDay = (
-										<div className="forecast__next-day p-3" key={index} onClick={() => loadNextDayPage(day)}>
-											<div>
-												<p className="fw-bold">{convertDay(day.date)}</p>
-												<p>{convertDate(day.date)}</p>
-											</div>
-
-											<div>
-												<Image src={`https:${day.day.condition.icon}`} fluid />
-											</div>
-
-											<div className="px-2">
-												<p>{day.day.maxtemp_c.toString().slice(0, 2)}°</p>
-												<p>{day.day.mintemp_c.toString().slice(0, 2)}°</p>
-											</div>
-
-											<div className="text-end">
-												<p>{day.day.totalprecip_mm === 0 ? "Assenti" : day.day.totalprecip_mm + " mm"}</p>
-												<p>{Math.round(day.day.maxwind_kph)} km/h</p>
-											</div>
-										</div>
-									);
-								}
-								return htmlDay;
-							})} */}
 							{nextForecast.forecastday.map((day, index) =>
 								index !== 0 ? (
 									<div className="forecast__next-day p-3" key={index} onClick={() => loadNextDayPage(day)}>

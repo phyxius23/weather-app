@@ -12,7 +12,7 @@ const baseEndpoint = process.env.REACT_APP_WEATHER_URL;
 const key = process.env.REACT_APP_WEATHER_KEY;
 const accessKeyUnsplash = process.env.REACT_APP_UNSPLASH_ACCESSKEY;
 
-/** SET DAILY FORECAST */
+/** SET TODAY FORECAST */
 export const getDailyForecastAction = (city) => {
 	return async (dispatch, getState) => {
 		try {
@@ -33,7 +33,7 @@ export const getDailyForecastAction = (city) => {
 	};
 };
 
-/** SET NEXT FORECAST */
+/** SET NEXT DAY FORECAST */
 export const getNextForecastAction = (city) => {
 	return async (dispatch, getState) => {
 		try {
@@ -54,11 +54,12 @@ export const getNextForecastAction = (city) => {
 	};
 };
 
+/** SET SELECTED CITY */
 export const setCityAction = (city) => ({ type: SET_CITY, payload: city });
-export const selectDayAction = (day) => ({ type: SELECT_DAY, payload: day });
-// export const getImageCity = (nameCity) => ({ type: GET_IMAGE, payload: nameCity });
 
-export const resetImageAction = () => ({ type: RESET_IMAGE });
+/** SELECT DAY */
+export const selectDayAction = (day) => ({ type: SELECT_DAY, payload: day });
+
 /** GET IMAGE CITY */
 export const getImageCity = (nameCity) => {
 	console.log(nameCity);
@@ -83,19 +84,5 @@ export const getImageCity = (nameCity) => {
 	};
 };
 
-// export const addToCartActionWithThunk = bookSelected => {
-//    return (dispatch, getState) => {
-//      const currentState = getState();
-//      console.log("DENTRO ADD TO CART WITH THUNK ", currentState);
-//      console.log(
-//        "CHECK",
-//        currentState.cart.content.findIndex(book => book.id === bookSelected.id)
-//      );
-//      const checkBookInCart = currentState.cart.content.findIndex(book => book.id === bookSelected.id);
-//      if (checkBookInCart === -1) {
-//        dispatch({ type: ADD_TO_CART, payload: bookSelected });
-//      } else {
-//        console.log("LIBRO GIA' PRESENTE NEL CARRELLO");
-//      }
-//    };
-//  };
+/** RESET IMAGE CITY */
+export const resetImageAction = () => ({ type: RESET_IMAGE });
