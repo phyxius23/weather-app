@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectDayAction } from "../assets/redux/actions";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { ChevronLeft } from "react-bootstrap-icons";
 
 const DailyForecast = () => {
 	const dispatch = useDispatch();
@@ -54,6 +55,13 @@ const DailyForecast = () => {
 					{/* IMMAGINE RIEPILOGATIVA */}
 					<Row>
 						<Col xs={12} className="forecast__img p-0">
+							<div className="forecast__txt">
+								<div className="d-flex justify-content-center align-items-center me-3" onClick={() => navigate(-1)}>
+									<ChevronLeft size={16} />
+								</div>
+								<p className="mb-0">{city.name}</p>
+							</div>
+
 							<Image src={image} fluid />
 						</Col>
 					</Row>
