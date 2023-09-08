@@ -65,8 +65,8 @@ const Search = () => {
 				<Col xs={8}>
 					{cities.map((city) => (
 						<div key={city.id}>
-							<Button className="mt-4 w-100 d-flex justify-content-between align-items-center">
-								<span onClick={() => handleSetCity(city)}>
+							<Button className="mt-4 w-100 d-flex justify-content-between align-items-center" onClick={() => handleSetCity(city)}>
+								<span>
 									{city.name}, {city.country === "United States of America" ? "USA" : city.country}
 								</span>
 								<Heart />
