@@ -21,21 +21,23 @@ const Search = () => {
 	const handleSearchCities = async (e) => {
 		e.preventDefault();
 
-		try {
-			const response = await fetch(baseEndpoint + "/search.json?key=" + key + "&q=" + query + "&lang=it");
+		if (query !== "") {
+			try {
+				const response = await fetch(baseEndpoint + "/search.json?key=" + key + "&q=" + query + "&lang=it");
 
-			if (response.ok) {
-				const data = await response.json();
+				if (response.ok) {
+					const data = await response.json();
 
-				setCities(data);
-				setQuery("");
+					setCities(data);
+					setQuery("");
 
-				console.log(data);
-			} else {
-				alert("alert: error fetching results");
+					// console.log(data);
+				} else {
+					alert("alert: error fetching results");
+				}
+			} catch (error) {
+				console.log(error.message);
 			}
-		} catch (error) {
-			console.log(error.message);
 		}
 	};
 
