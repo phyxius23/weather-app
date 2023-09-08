@@ -44,7 +44,7 @@ const DailyForecast = () => {
 	};
 
 	return (
-		<Container className="forecast-intro">
+		<Container className="forecast-intro" fluid>
 			{today && nextForecast && image && (
 				<>
 					{/* IMMAGINE RIEPILOGATIVA */}

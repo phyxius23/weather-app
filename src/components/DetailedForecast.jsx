@@ -21,7 +21,7 @@ const DetailedForecast = () => {
 	};
 
 	return (
-		<Container className="forecast-detail">
+		<Container className="forecast-detail" fluid>
 			{selectedDay && image && (
 				<>
 					{/* IMMAGINE RIEPILOGATIVA */}

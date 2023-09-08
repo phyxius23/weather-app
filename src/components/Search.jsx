@@ -48,7 +48,7 @@ const Search = () => {
 	};
 
 	return (
-		<Container className="search">
+		<Container className="search" fluid>
 			<Row className="h-100 flex-column align-content-center">
 				<Col xs={8}>
 					<h1 className="mt-5 mb-3">Weather App</h1>
