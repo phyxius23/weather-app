@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getImageCity, getNextForecastAction, resetImageAction, setCityAction } from "../assets/redux/actions";
+import { Heart } from "react-bootstrap-icons";
 
 const Search = () => {
 	const [query, setQuery] = useState("");
@@ -64,11 +65,12 @@ const Search = () => {
 				<Col xs={8}>
 					{cities.map((city) => (
 						<div key={city.id}>
-							<Button className="mt-4 w-100 d-flex justify-content-between" onClick={() => handleSetCity(city)}>
-								<span>
+							<Button className="mt-4 w-100 d-flex justify-content-between align-items-center">
+								<span onClick={() => handleSetCity(city)}>
 									{city.name}, {city.country === "United States of America" ? "USA" : city.country}
 								</span>
-								<span>+</span>
+								<Heart />
+								{/* <HeartFill onClick={() => addRemoveFavorite(city.id)} /> */}
 							</Button>
 						</div>
 					))}
