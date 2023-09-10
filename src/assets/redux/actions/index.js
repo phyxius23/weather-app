@@ -70,7 +70,7 @@ export const getImageCity = (nameCity) => {
 			if (response.ok) {
 				const data = await response.json();
 
-				const image = await data.results[0].urls.small;
+				const image = await data.results[0].urls.regular;
 
 				dispatch({ type: GET_IMAGE, payload: image });
 
