@@ -3,7 +3,8 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { ChevronLeft } from "react-bootstrap-icons";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+// import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Droplet, Speedometer, Cursor, CloudRain, Wind } from "react-bootstrap-icons";
 
 const DetailedForecast = () => {
 	const selectedDay = useSelector((state) => state.selectedDay.content);
@@ -33,8 +34,8 @@ const DetailedForecast = () => {
 								</div>
 								<p className="mb-0">{city}</p>
 							</div>
-							{/* <Image src={image} fluid /> */}
-							<LazyLoadImage src={image} />
+							<Image src={image} fluid />
+							{/* <LazyLoadImage src={image} /> */}
 						</Col>
 					</Row>
 
@@ -57,43 +58,113 @@ const DetailedForecast = () => {
 							{lastUpdate === 0
 								? selectedDay.hour.map((hour) => (
 										<div className="forecast__next-hour p-3" key={hour.time_epoch}>
-											<div>
-												<p className="text-black fw-bold">{hour.time.slice(-5)}</p>
-												<p>{hour.condition.text}</p>
+											<div className="forecast__top">
+												<div>
+													<p className="text-black fw-bold text-custom">{hour.time.slice(-5)}</p>
+													<p>{hour.condition.text}</p>
+												</div>
+
+												<div>
+													<Image src={`https:${hour.condition.icon}`} fluid />
+												</div>
+
+												<div className="px-2">
+													<p className="text-black fw-bold text-custom">{hour.temp_c.toString().slice(0, 2)}°</p>
+													<p>p. {hour.feelslike_c.toString().slice(0, 2)}°</p>
+												</div>
+
+												<div>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>{hour.precip_mm === 0 ? "Assenti" : hour.precip_mm + " mm"}</p>
+														<CloudRain />
+													</div>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>
+															{Math.round(hour.wind_kph)} km/h {hour.wind_dir}
+														</p>
+														<Cursor />
+													</div>
+												</div>
 											</div>
 
-											<div>
-												<Image src={`https:${hour.condition.icon}`} fluid />
-											</div>
+											<div className="forecast__bottom mt-3">
+												<div>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>{hour.pressure_mb} mb</p>
+														<Speedometer />
+													</div>
 
-											<div className="px-2">
-												<p className="text-black">{hour.temp_c.toString().slice(0, 2)}°</p>
-											</div>
-
-											<div className="text-end">
-												<p>{hour.precip_mm === 0 ? "Assenti" : hour.precip_mm + " mm"}</p>
-												<p>{Math.round(hour.wind_kph)} km/h</p>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>{hour.humidity}%</p>
+														<Droplet />
+													</div>
+												</div>
+												<div>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>{hour.gust_kph} km/h</p>
+														<Wind />
+													</div>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>{hour.uv}</p>
+														<p className="ms-1">UV</p>
+													</div>
+												</div>
 											</div>
 										</div>
 								  ))
 								: selectedDay.hour.slice(lastUpdate, selectedDay.hour.length).map((hour) => (
 										<div className="forecast__next-hour p-3" key={hour.time_epoch}>
-											<div>
-												<p className="text-black fw-bold">{hour.time.slice(-5)}</p>
-												<p>{hour.condition.text}</p>
+											<div className="forecast__top">
+												<div>
+													<p className="text-black fw-bold text-custom">{hour.time.slice(-5)}</p>
+													<p>{hour.condition.text}</p>
+												</div>
+
+												<div>
+													<Image src={`https:${hour.condition.icon}`} fluid />
+												</div>
+
+												<div className="px-2">
+													<p className="text-black fw-bold text-custom">{hour.temp_c.toString().slice(0, 2)}°</p>
+													<p>p. {hour.feelslike_c.toString().slice(0, 2)}°</p>
+												</div>
+
+												<div>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>{hour.precip_mm === 0 ? "Assenti" : hour.precip_mm + " mm"}</p>
+														<CloudRain />
+													</div>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>
+															{Math.round(hour.wind_kph)} km/h {hour.wind_dir}
+														</p>
+														<Cursor />
+													</div>
+												</div>
 											</div>
 
-											<div>
-												<Image src={`https:${hour.condition.icon}`} fluid />
-											</div>
+											<div className="forecast__bottom mt-3">
+												<div>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>{hour.pressure_mb} mb</p>
+														<Speedometer />
+													</div>
 
-											<div className="px-2">
-												<p className="text-black">{hour.temp_c.toString().slice(0, 2)}°</p>
-											</div>
-
-											<div className="text-end">
-												<p>{hour.precip_mm === 0 ? "Assenti" : hour.precip_mm + " mm"}</p>
-												<p>{Math.round(hour.wind_kph)} km/h</p>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>{hour.humidity}%</p>
+														<Droplet />
+													</div>
+												</div>
+												<div>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>{hour.gust_kph} km/h</p>
+														<Wind />
+													</div>
+													<div className="d-flex align-items-center justify-content-end forecast__icon">
+														<p>{hour.uv}</p>
+														<p className="ms-1">UV</p>
+													</div>
+												</div>
 											</div>
 										</div>
 								  ))}
