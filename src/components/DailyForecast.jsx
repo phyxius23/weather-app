@@ -1,45 +1,27 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
-import { selectDayAction } from "../assets/redux/actions";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft } from "react-bootstrap-icons";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { convertDate } from "../utils/utils";
+import { selectedForecastAction } from "../store/selectedForecast/selectedForecastActions";
 
 const DailyForecast = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const city = useSelector((state) => state.city.content);
-	const today = useSelector((state) => state.nextForecast.content.current);
-	const image = useSelector((state) => state.imageCity.content);
-	const nextForecast = useSelector((state) => state.nextForecast.content.forecast);
-
-	const convertDate = (date) => {
-		const setDate = new Date(date);
-		const options = { weekday: "long", year: "numeric", month: "short", day: "2-digit" };
-		const newDate = setDate.toLocaleDateString("it-IT", options);
-
-		return newDate.slice(-11).slice(0, 6).toUpperCase();
-	};
-
-	const convertDay = (date) => {
-		const setDate = new Date(date);
-		const options = { weekday: "long", year: "numeric", month: "short", day: "2-digit" };
-		const newDate = setDate.toLocaleDateString("it-IT", options);
-
-		const myDay = newDate.split(" ")[0];
-
-		return myDay[0].toUpperCase() + myDay.slice(1);
-	};
+	const city = useSelector((state) => state.city.city);
+	const today = useSelector((state) => state.forecasts.forecasts.current);
+	const image = useSelector((state) => state.imageCity.imageURL);
+	const nextForecast = useSelector((state) => state.forecasts.forecasts.forecast);
 
 	const loadTodayPage = (day) => {
-		dispatch(selectDayAction(day));
+		dispatch(selectedForecastAction(day));
 		navigate(`/city/${city.name}/detail/${parseInt(today.last_updated.slice(-5).slice(0, 2)) + 1}`);
 	};
 
 	const loadNextDayPage = (day) => {
-		dispatch(selectDayAction(day));
+		dispatch(selectedForecastAction(day));
 		navigate(`/city/${city.name}/detail/${0}`);
 	};
 
@@ -57,8 +39,7 @@ const DailyForecast = () => {
 								<p className="mb-0">{city.name}</p>
 							</div>
 
-							{/* <Image src={image} fluid /> */}
-							<LazyLoadImage src={image} />
+							<Image src={image} fluid />
 						</Col>
 					</Row>
 
@@ -91,8 +72,11 @@ const DailyForecast = () => {
 								index !== 0 ? (
 									<div className="forecast__next-day p-3" key={index} onClick={() => loadNextDayPage(day)}>
 										<div>
-											<p className="fw-bold">{convertDay(day.date)}</p>
-											<p>{convertDate(day.date)}</p>
+											<p className="fw-bold text-capitalize">{convertDate(day.date, 0)}</p>
+											<p>
+												<span>{convertDate(day.date, 1).dayOfMonth} </span>
+												<span className="text-uppercase">{convertDate(day.date, 1).month.substring(0, 3)}</span>
+											</p>
 										</div>
 
 										<div>

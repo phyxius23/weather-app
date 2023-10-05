@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getImageCity, getNextForecastAction, resetImageAction, setCityAction } from "../assets/redux/actions";
-import { Heart } from "react-bootstrap-icons";
+import { Heart, HeartFill } from "react-bootstrap-icons";
+import { getImageCity, resetImageAction } from "../store/imageCity/imageCityActions";
+import { getCityAction } from "../store/city/cityActions";
+import { getForecastsAction } from "../store/forecasts/forecastsActions";
+import { addFavoritesAction, removeFavoritesAction } from "../store/favorites/favoritesActions";
 
 const Search = () => {
 	const [query, setQuery] = useState("");
@@ -11,6 +14,8 @@ const Search = () => {
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+
+	const favorites = useSelector((state) => state.favorites.favorites);
 
 	const baseEndpoint = process.env.REACT_APP_WEATHER_URL;
 	const key = process.env.REACT_APP_WEATHER_KEY;
@@ -45,9 +50,19 @@ const Search = () => {
 	const handleSetCity = (city) => {
 		dispatch(resetImageAction());
 		dispatch(getImageCity(city.name));
-		dispatch(setCityAction(city));
-		dispatch(getNextForecastAction(city));
+		dispatch(getCityAction(city));
+		dispatch(getForecastsAction(city));
 		navigate(`/city/${city.name}`);
+	};
+
+	const handleAddFavorites = (e, cityId) => {
+		e.stopPropagation();
+		dispatch(addFavoritesAction(cityId));
+	};
+
+	const handleRemoveFavorites = (e, cityId) => {
+		e.stopPropagation();
+		dispatch(removeFavoritesAction(cityId));
 	};
 
 	return (
@@ -69,8 +84,7 @@ const Search = () => {
 								<span>
 									{city.name}, {city.country === "United States of America" ? "USA" : city.country}
 								</span>
-								<Heart />
-								{/* <HeartFill onClick={() => addRemoveFavorite(city.id)} /> */}
+								{favorites.includes(city.id) ? <HeartFill onClick={(e) => handleRemoveFavorites(e, city.id)} /> : <Heart onClick={(e) => handleAddFavorites(e, city.id)} />}
 							</Button>
 						</div>
 					))}

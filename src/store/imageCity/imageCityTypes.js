@@ -1,0 +1,4 @@
+export const IMAGE_ACTIONS_TYPES = {
+	GET_IMAGE: "GET_IMAGE",
+	RESET_IMAGE: "RESET_IMAGE",
+};

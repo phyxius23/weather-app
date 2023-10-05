@@ -3,23 +3,15 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { ChevronLeft } from "react-bootstrap-icons";
-// import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Droplet, Speedometer, Cursor, CloudRain, Wind } from "react-bootstrap-icons";
+import { convertDate } from "../utils/utils";
 
 const DetailedForecast = () => {
-	const selectedDay = useSelector((state) => state.selectedDay.content);
-	const image = useSelector((state) => state.imageCity.content);
+	const selectedDay = useSelector((state) => state.selectedForecast.selectedForecast);
+	const image = useSelector((state) => state.imageCity.imageURL);
 	const { lastUpdate } = useParams();
 	const { city } = useParams();
 	const navigate = useNavigate();
-
-	const convertDay = (date) => {
-		const setDate = new Date(date);
-		const options = { weekday: "long", year: "numeric", month: "short", day: "2-digit" };
-		const newDate = setDate.toLocaleDateString("it-IT", options);
-
-		return newDate.slice(0, newDate.length - 9).toUpperCase();
-	};
 
 	return (
 		<Container className="forecast-detail" fluid>
@@ -43,7 +35,13 @@ const DetailedForecast = () => {
 					<Row>
 						<Col xs={12} className="d-flex flex-column px-0">
 							<div className="forecast-detail__intro text-center py-4">
-								{lastUpdate !== "0" ? <p className="mb-2">OGGI</p> : <p className="mb-2">{convertDay(selectedDay.date)}</p>}
+								{lastUpdate !== "0" ? (
+									<p className="mb-2">OGGI</p>
+								) : (
+									<p className="mb-2 text-uppercase">
+										{convertDate(selectedDay.date, 2).dayOfWeek} {convertDate(selectedDay.date, 2).dayOfMonth}
+									</p>
+								)}
 								<p className="mb-2">{selectedDay.day.condition.text}</p>
 								<p className="mb-0">
 									Temp. tra {selectedDay.day.maxtemp_c}° e {selectedDay.day.mintemp_c}°
