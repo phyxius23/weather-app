@@ -3,6 +3,8 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Heart, HeartFill } from "react-bootstrap-icons";
+import { baseEndpoint } from "../utils/utils";
+import { key } from "../utils/utils";
 import { getImageCity, resetImageAction } from "../store/imageCity/imageCityActions";
 import { getCityAction } from "../store/city/cityActions";
 import { getForecastsAction } from "../store/forecasts/forecastsActions";
@@ -16,9 +18,6 @@ const Search = () => {
 	const navigate = useNavigate();
 
 	const favorites = useSelector((state) => state.favorites.favorites);
-
-	const baseEndpoint = process.env.REACT_APP_WEATHER_URL;
-	const key = process.env.REACT_APP_WEATHER_KEY;
 
 	const handleChange = (e) => {
 		setQuery(e.target.value);
