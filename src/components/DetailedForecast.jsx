@@ -31,7 +31,7 @@ const DetailedForecast = () => {
 						</Col>
 					</Row>
 
-					{/* PREVISIONE GIORNALIERA TESTUALE */}
+					{/* PREVISIONE GIORNALIERA TESTUALE  */}
 					<Row>
 						<Col xs={12} className="d-flex flex-column px-0">
 							<div className="forecast-detail__intro text-center py-4">
