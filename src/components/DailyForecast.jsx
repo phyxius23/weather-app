@@ -84,8 +84,10 @@ const DailyForecast = () => {
 										</div>
 
 										<div className="px-2">
-											<p>{day.day.maxtemp_c.toString().slice(0, 2)}°</p>
-											<p>{day.day.mintemp_c.toString().slice(0, 2)}°</p>
+											{/* <p>{day.day.maxtemp_c.toString().slice(0, 2)}°</p> */}
+											{/* <p>{day.day.mintemp_c.toString().slice(0, 2)}°</p> */}
+											<p>{day.day.maxtemp_c.toFixed()}°</p>
+											<p>{day.day.mintemp_c.toFixed()}°</p>
 										</div>
 
 										<div className="text-end">
