@@ -67,8 +67,8 @@ const DetailedForecast = () => {
 												</div>
 
 												<div className="px-2">
-													<p className="text-black fw-bold text-custom">{hour.temp_c.toString().slice(0, 2)}°</p>
-													<p>p. {hour.feelslike_c.toString().slice(0, 2)}°</p>
+													<p className="text-black fw-bold text-custom">{hour.temp_c.toFixed()}°</p>
+													<p>p. {hour.feelslike_c.toFixed()}°</p>
 												</div>
 
 												<div>
@@ -99,7 +99,7 @@ const DetailedForecast = () => {
 												</div>
 												<div>
 													<div className="d-flex align-items-center justify-content-end forecast__icon">
-														<p>{hour.gust_kph} km/h</p>
+														<p>{Math.round(hour.gust_kph)} km/h</p>
 														<Wind />
 													</div>
 													<div className="d-flex align-items-center justify-content-end forecast__icon">
