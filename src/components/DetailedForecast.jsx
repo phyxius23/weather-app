@@ -155,7 +155,7 @@ const DetailedForecast = () => {
 												</div>
 												<div>
 													<div className="d-flex align-items-center justify-content-end forecast__icon">
-														<p>{hour.gust_kph} km/h</p>
+														<p>{Math.round(hour.gust_kph)} km/h</p>
 														<Wind />
 													</div>
 													<div className="d-flex align-items-center justify-content-end forecast__icon">
