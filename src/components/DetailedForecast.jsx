@@ -123,7 +123,7 @@ const DetailedForecast = () => {
 												</div>
 
 												<div className="px-2">
-													<p className="text-black fw-bold text-custom">{hour.temp_c.toString().slice(0, 2)}°</p>
+													<p className="text-black fw-bold text-custom">{hour.temp_c.toFixed()}°</p>
 													<p>p. {hour.feelslike_c.toFixed()}°</p>
 												</div>
 
